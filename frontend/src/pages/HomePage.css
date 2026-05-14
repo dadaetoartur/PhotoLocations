@@ -1,0 +1,296 @@
+/* ── Hero ─────────────────────────────────────── */
+.home__hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.home__hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(160deg, rgba(14,12,10,0.72) 0%, rgba(61,74,92,0.55) 50%, rgba(14,12,10,0.80) 100%),
+    url('https://images.unsplash.com/photo-1513326738677-b964603b136d?w=1800') center/cover no-repeat;
+}
+
+.home__hero-content {
+  position: relative;
+  z-index: 2;
+  padding-top: 8rem;
+  padding-bottom: 6rem;
+}
+
+.home__hero-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.25rem;
+  animation: fadeUp 0.6s 0.1s ease backwards;
+}
+
+.home__hero-title {
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  color: #fff;
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.7s 0.2s ease backwards;
+}
+
+.home__hero-title em {
+  font-style: italic;
+  color: var(--gold-light);
+}
+
+.home__hero-sub {
+  max-width: 520px;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 2.5rem;
+  animation: fadeUp 0.7s 0.3s ease backwards;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--ink);
+  padding: 0.875rem 2.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: var(--radius);
+  transition: background var(--transition), transform var(--transition);
+  animation: fadeUp 0.7s 0.4s ease backwards;
+}
+
+.btn-primary:hover {
+  background: var(--gold-dark);
+  transform: translateY(-2px);
+}
+
+.home__hero-scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255,255,255,0.45);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  z-index: 2;
+  animation: fadeIn 1s 1s ease backwards;
+}
+
+.home__hero-scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+  animation: shimmer 2s infinite;
+}
+
+/* ── Section headers ──────────────────────────── */
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--ink);
+}
+
+/* ── Cities grid ──────────────────────────────── */
+.home__cities {
+  padding: 6rem 2rem;
+}
+
+.home__cities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5px;
+  border: 1px solid var(--border);
+}
+
+.city-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  min-height: 520px;
+  animation: fadeUp 0.7s ease backwards;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.city-card--skeleton {
+  height: 520px;
+  background: var(--cream);
+}
+
+.city-card__image-wrap {
+  position: absolute;
+  inset: 0;
+}
+
+.city-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.city-card:hover .city-card__image {
+  transform: scale(1.06);
+}
+
+.city-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(14,12,10,0.88) 0%, rgba(14,12,10,0.2) 60%, transparent 100%);
+  transition: background var(--transition);
+}
+
+.city-card:hover .city-card__overlay {
+  background: linear-gradient(to top, rgba(14,12,10,0.92) 0%, rgba(14,12,10,0.35) 60%, transparent 100%);
+}
+
+.city-card__content {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+  padding: 2rem;
+  color: #fff;
+}
+
+.city-card__tagline {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 0.5rem;
+}
+
+.city-card__name {
+  font-size: 2.25rem;
+  margin-bottom: 0.75rem;
+  font-weight: 300;
+}
+
+.city-card__desc {
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 1.25rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.city-card:hover .city-card__desc {
+  max-height: 200px;
+}
+
+.city-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.city-card__count {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+
+.city-card__arrow {
+  font-size: 1.25rem;
+  color: var(--gold);
+  transition: transform var(--transition);
+}
+
+.city-card:hover .city-card__arrow {
+  transform: translateX(6px);
+}
+
+/* ── Features ─────────────────────────────────── */
+.home__features {
+  background: var(--ink);
+  padding: 4rem 2rem;
+}
+
+.home__features-inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 3rem;
+  text-align: center;
+}
+
+.home__feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.home__feature-icon {
+  font-size: 1.75rem;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.home__feature-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--cream);
+}
+
+.home__feature-desc {
+  font-size: 0.8rem;
+  color: rgba(245, 240, 232, 0.55);
+  line-height: 1.7;
+}
+
+/* ── Footer ───────────────────────────────────── */
+.home__footer {
+  background: var(--ink);
+  border-top: 1px solid rgba(201, 168, 76, 0.15);
+  padding: 1.5rem 2rem;
+}
+
+.home__footer-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.85rem;
+  color: rgba(245, 240, 232, 0.4);
+}
+
+.home__footer-inner em {
+  font-style: italic;
+  color: var(--gold-dark);
+}
+
+@media (max-width: 768px) {
+  .home__cities-grid { grid-template-columns: 1fr; gap: 1px; }
+  .city-card { min-height: 400px; }
+  .city-card__desc { max-height: 200px; }
+}
