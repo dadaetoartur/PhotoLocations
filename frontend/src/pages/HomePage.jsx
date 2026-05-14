@@ -10,9 +10,9 @@ const CITY_HERO = {
 }
 
 const CITY_TAGLINES = {
-  moscow: 'The Heart of Russia',
-  'saint-petersburg': 'The Venice of the North',
-  kazan: 'Where East Meets West',
+  moscow: 'Сердце России',
+  'saint-petersburg': 'Северная Венеция',
+  kazan: 'Там, где Восток встречает Запад',
 }
 
 export default function HomePage() {
@@ -31,20 +31,20 @@ export default function HomePage() {
       <section className="home__hero">
         <div className="home__hero-bg" />
         <div className="home__hero-content container">
-          <p className="home__hero-eyebrow">Discover Russia</p>
+          <p className="home__hero-eyebrow">Откройте Россию</p>
           <h1 className="home__hero-title">
-            Iconic Places,<br />
-            <em>Captured</em>
+            Легендарные места,<br />
+            <em>запечатлённые</em>
           </h1>
           <p className="home__hero-sub">
-            Explore landmarks across three of Russia's greatest cities — each photograph a window into history, culture, and enduring beauty.
+            Исследуйте достопримечательности трёх великих городов России — каждая фотография открывает окно в историю, культуру и вечную красоту страны.
           </p>
           <div className="home__hero-cta">
-            <a href="#cities" className="btn-primary">Explore Cities</a>
+            <a href="#cities" className="btn-primary">Исследовать города</a>
           </div>
         </div>
         <div className="home__hero-scroll">
-          <span>scroll</span>
+          <span>листать</span>
           <div className="home__hero-scroll-line" />
         </div>
       </section>
@@ -52,8 +52,8 @@ export default function HomePage() {
       {/* Cities */}
       <section id="cities" className="home__cities container">
         <div className="section-header">
-          <p className="section-label">Destinations</p>
-          <h2 className="section-title">Three Cities, One Journey</h2>
+          <p className="section-label">Направления</p>
+          <h2 className="section-title">Три города — одно путешествие</h2>
         </div>
 
         {loading ? (
@@ -86,7 +86,7 @@ export default function HomePage() {
                   <h3 className="city-card__name">{city.name}</h3>
                   <p className="city-card__desc">{city.description}</p>
                   <div className="city-card__footer">
-                    <span className="city-card__count">{city.landmark_count} landmarks</span>
+                    <span className="city-card__count">{city.landmark_count} достопримечательностей</span>
                     <span className="city-card__arrow">→</span>
                   </div>
                 </div>
@@ -100,9 +100,9 @@ export default function HomePage() {
       <section className="home__features">
         <div className="container home__features-inner">
           {[
-            { icon: '◎', label: 'Curated Locations', desc: '30 landmark photographs across 3 great cities' },
-            { icon: '◷', label: 'Rich History', desc: 'Expert descriptions from centuries of cultural legacy' },
-            { icon: '◈', label: 'Community', desc: 'Share your thoughts and read others\' impressions' },
+            { icon: '◎', label: 'Избранные места', desc: '30 фотографий достопримечательностей трёх великих городов' },
+            { icon: '◷', label: 'Богатая история', desc: 'Подробные описания, хранящие память о столетиях культурного наследия' },
+            { icon: '◈', label: 'Сообщество', desc: 'Делитесь впечатлениями и читайте отзывы других путешественников' },
           ].map(f => (
             <div key={f.label} className="home__feature">
               <span className="home__feature-icon">{f.icon}</span>
@@ -117,7 +117,7 @@ export default function HomePage() {
       <footer className="home__footer">
         <div className="container home__footer-inner">
           <span className="navbar__brand-icon">◈</span>
-          <span>Photo<em>Locations</em> · Russia</span>
+          <span>Photo<em>Locations</em> · Россия</span>
         </div>
       </footer>
     </div>

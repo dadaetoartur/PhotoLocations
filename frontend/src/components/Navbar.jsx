@@ -38,10 +38,10 @@ export default function Navbar() {
         </button>
 
         <div className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''}`}>
-          <NavLink to="/" end className={({isActive}) => isActive ? 'active' : ''} onClick={() => setMenuOpen(false)}>Home</NavLink>
-          <NavLink to="/city/moscow" className={({isActive}) => isActive ? 'active' : ''} onClick={() => setMenuOpen(false)}>Moscow</NavLink>
-          <NavLink to="/city/saint-petersburg" className={({isActive}) => isActive ? 'active' : ''} onClick={() => setMenuOpen(false)}>St. Petersburg</NavLink>
-          <NavLink to="/city/kazan" className={({isActive}) => isActive ? 'active' : ''} onClick={() => setMenuOpen(false)}>Kazan</NavLink>
+          <NavLink to="/" end className={({isActive}) => isActive ? 'active' : ''} onClick={() => setMenuOpen(false)}>Главная</NavLink>
+          <NavLink to="/city/moscow" className={({isActive}) => isActive ? 'active' : ''} onClick={() => setMenuOpen(false)}>Москва</NavLink>
+          <NavLink to="/city/saint-petersburg" className={({isActive}) => isActive ? 'active' : ''} onClick={() => setMenuOpen(false)}>Санкт-Петербург</NavLink>
+          <NavLink to="/city/kazan" className={({isActive}) => isActive ? 'active' : ''} onClick={() => setMenuOpen(false)}>Казань</NavLink>
 
           <div className="navbar__divider" />
 
@@ -51,12 +51,12 @@ export default function Navbar() {
                 <span className="navbar__avatar">{(user.username || user.user?.username || '?')[0].toUpperCase()}</span>
                 <span>{user.username || user.user?.username}</span>
               </NavLink>
-              <button className="navbar__logout" onClick={handleLogout}>Sign out</button>
+              <button className="navbar__logout" onClick={handleLogout}>Выйти</button>
             </>
           ) : (
             <>
-              <NavLink to="/login" className="navbar__auth-link" onClick={() => setMenuOpen(false)}>Sign in</NavLink>
-              <NavLink to="/register" className="navbar__auth-btn" onClick={() => setMenuOpen(false)}>Register</NavLink>
+              <NavLink to="/login" className="navbar__auth-link" onClick={() => setMenuOpen(false)}>Войти</NavLink>
+              <NavLink to="/register" className="navbar__auth-btn" onClick={() => setMenuOpen(false)}>Регистрация</NavLink>
             </>
           )}
         </div>

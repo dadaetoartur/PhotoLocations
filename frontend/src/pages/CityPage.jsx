@@ -21,7 +21,7 @@ export default function CityPage() {
     setError(null)
     API.get(`/cities/${slug}/`)
       .then(({ data }) => setCity(data))
-      .catch(() => setError('City not found.'))
+      .catch(() => setError('Город не найден.'))
       .finally(() => setLoading(false))
   }, [slug])
 
@@ -41,7 +41,7 @@ export default function CityPage() {
   if (error) return (
     <div className="city-page city-page--error container">
       <h2>{error}</h2>
-      <Link to="/" className="btn-back">← Back to home</Link>
+      <Link to="/" className="btn-back">← На главную</Link>
     </div>
   )
 
@@ -53,13 +53,13 @@ export default function CityPage() {
       <section className="city-page__hero" style={{backgroundImage: `url(${heroImg})`}}>
         <div className="city-page__hero-overlay" />
         <div className="city-page__hero-content container">
-          <Link to="/" className="city-page__breadcrumb">← All Cities</Link>
+          <Link to="/" className="city-page__breadcrumb">← Все города</Link>
           <h1 className="city-page__title">{city.name}</h1>
           <p className="city-page__subtitle">{city.description}</p>
           <div className="city-page__stats">
-            <span>{city.landmarks?.length || 0} landmarks</span>
+            <span>{city.landmarks?.length || 0} достопримечательностей</span>
             <span className="city-page__stats-dot">·</span>
-            <span>{city.landmarks?.reduce((a, l) => a + (l.comment_count || 0), 0)} comments</span>
+            <span>{city.landmarks?.reduce((a, l) => a + (l.comment_count || 0), 0)} комментариев</span>
           </div>
         </div>
       </section>
@@ -67,8 +67,8 @@ export default function CityPage() {
       {/* Landmarks grid */}
       <section className="city-page__content container">
         <div className="section-header">
-          <p className="section-label">Explore</p>
-          <h2 className="section-title">Landmark Locations</h2>
+          <p className="section-label">Исследовать</p>
+          <h2 className="section-title">Достопримечательности</h2>
         </div>
 
         <div className="city-page__grid">
@@ -83,7 +83,7 @@ export default function CityPage() {
       {/* Footer */}
       <footer className="city-footer">
         <div className="container city-footer__inner">
-          <Link to="/" className="city-footer__back">← Back to all cities</Link>
+          <Link to="/" className="city-footer__back">← Ко всем городам</Link>
           <span className="city-footer__name">{city.name}</span>
         </div>
       </footer>

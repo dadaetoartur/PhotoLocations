@@ -54,7 +54,7 @@ export default function ProfilePage() {
 
   const username = profile.user?.username || profile.username || ''
   const initial = username[0]?.toUpperCase() || '?'
-  const memberSince = new Date(profile.user?.date_joined).toLocaleDateString('en-US', {
+  const memberSince = new Date(profile.user?.date_joined).toLocaleDateString('ru-RU', {
     year: 'numeric', month: 'long'
   })
 
@@ -75,9 +75,9 @@ export default function ProfilePage() {
             <p className="profile-info__username">@{username}</p>
             {profile.bio && <p className="profile-info__bio">{profile.bio}</p>}
             <div className="profile-info__meta">
-              <span>Member since {memberSince}</span>
+              <span>Участник с {memberSince}</span>
               <span className="profile-info__dot">·</span>
-              <span>{profile.comment_count} comment{profile.comment_count !== 1 ? 's' : ''}</span>
+              <span>{profile.comment_count} комментари{profile.comment_count === 1 ? 'й' : profile.comment_count >= 2 && profile.comment_count <= 4 ? 'я' : 'ев'}</span>
             </div>
           </div>
         </div>
@@ -85,15 +85,15 @@ export default function ProfilePage() {
 
       <div className="container profile-page__content">
         {saved && (
-          <div className="profile-saved">✓ Profile updated successfully</div>
+          <div className="profile-saved">✓ Профиль успешно обновлён</div>
         )}
 
         <div className="profile-card">
           <div className="profile-card__header">
-            <h2 className="profile-card__title">Profile Settings</h2>
+            <h2 className="profile-card__title">Настройки профиля</h2>
             {!editMode && (
               <button className="profile-card__edit-btn" onClick={() => setEditMode(true)}>
-                Edit Profile
+                Редактировать
               </button>
             )}
           </div>
@@ -101,7 +101,7 @@ export default function ProfilePage() {
           {editMode ? (
             <form className="profile-form" onSubmit={handleSave}>
               <div className="profile-form__group">
-                <label className="profile-form__label">Avatar URL</label>
+                <label className="profile-form__label">Ссылка на аватар</label>
                 <input
                   className="profile-form__input"
                   type="url"
@@ -111,28 +111,28 @@ export default function ProfilePage() {
                 />
               </div>
               <div className="profile-form__group">
-                <label className="profile-form__label">Bio</label>
+                <label className="profile-form__label">О себе</label>
                 <textarea
                   className="profile-form__textarea"
                   value={form.bio}
                   onChange={e => setForm(f => ({ ...f, bio: e.target.value }))}
-                  placeholder="Tell the community about yourself and your love of Russian landmarks…"
+                  placeholder="Расскажите сообществу о себе и своей любви к достопримечательностям России…"
                   rows={4}
                 />
               </div>
               <div className="profile-form__actions">
                 <button type="submit" className="profile-form__save" disabled={saving}>
-                  {saving ? 'Saving…' : 'Save Changes'}
+                  {saving ? 'Сохранение…' : 'Сохранить'}
                 </button>
                 <button type="button" className="profile-form__cancel" onClick={() => setEditMode(false)}>
-                  Cancel
+                  Отмена
                 </button>
               </div>
             </form>
           ) : (
             <div className="profile-details">
               <div className="profile-detail-row">
-                <span className="profile-detail-label">Username</span>
+                <span className="profile-detail-label">Имя пользователя</span>
                 <span className="profile-detail-value">@{username}</span>
               </div>
               <div className="profile-detail-row">
@@ -140,17 +140,17 @@ export default function ProfilePage() {
                 <span className="profile-detail-value">{profile.user?.email || '—'}</span>
               </div>
               <div className="profile-detail-row">
-                <span className="profile-detail-label">Full name</span>
+                <span className="profile-detail-label">Полное имя</span>
                 <span className="profile-detail-value">
                   {[profile.user?.first_name, profile.user?.last_name].filter(Boolean).join(' ') || '—'}
                 </span>
               </div>
               <div className="profile-detail-row">
-                <span className="profile-detail-label">Bio</span>
-                <span className="profile-detail-value">{profile.bio || <em style={{color: 'var(--muted)'}}>Not set</em>}</span>
+                <span className="profile-detail-label">О себе</span>
+                <span className="profile-detail-value">{profile.bio || <em style={{color: 'var(--muted)'}}>Не указано</em>}</span>
               </div>
               <div className="profile-detail-row">
-                <span className="profile-detail-label">Comments posted</span>
+                <span className="profile-detail-label">Комментариев оставлено</span>
                 <span className="profile-detail-value profile-detail-value--highlight">{profile.comment_count}</span>
               </div>
             </div>
@@ -159,7 +159,7 @@ export default function ProfilePage() {
 
         <div className="profile-danger">
           <button className="profile-danger__btn" onClick={handleLogout}>
-            Sign out of account
+            Выйти из аккаунта
           </button>
         </div>
       </div>

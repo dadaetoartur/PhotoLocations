@@ -27,7 +27,7 @@ export default function RegisterPage() {
       if (err.response?.data) {
         setErrors(err.response.data)
       } else {
-        setErrors({ non_field_errors: ['Something went wrong. Please try again.'] })
+        setErrors({ non_field_errors: ['Что-то пошло не так. Попробуйте ещё раз.'] })
       }
     } finally {
       setLoading(false)
@@ -55,8 +55,8 @@ export default function RegisterPage() {
       <div className="auth-card auth-card--wide">
         <div className="auth-card__header">
           <Link to="/" className="auth-card__logo">◈ Photo<em>Locations</em></Link>
-          <h1 className="auth-card__title">Create an account</h1>
-          <p className="auth-card__sub">Join our community of photography enthusiasts and travellers.</p>
+          <h1 className="auth-card__title">Создать аккаунт</h1>
+          <p className="auth-card__sub">Присоединяйтесь к сообществу любителей фотографии и путешествий.</p>
         </div>
 
         {errors.non_field_errors && (
@@ -64,20 +64,20 @@ export default function RegisterPage() {
         )}
 
         <form className="auth-form auth-form--grid" onSubmit={handleSubmit}>
-          {field('first_name', 'First name', 'text', 'Anna')}
-          {field('last_name', 'Last name', 'text', 'Petrova')}
-          {field('username', 'Username *', 'text', 'anna_petrova')}
+          {field('first_name', 'Имя', 'text', 'Анна')}
+          {field('last_name', 'Фамилия', 'text', 'Петрова')}
+          {field('username', 'Имя пользователя *', 'text', 'anna_petrova')}
           {field('email', 'Email', 'email', 'anna@example.com')}
-          {field('password', 'Password *', 'password', '••••••••')}
-          {field('password2', 'Confirm password *', 'password', '••••••••')}
+          {field('password', 'Пароль *', 'password', '••••••••')}
+          {field('password2', 'Подтвердите пароль *', 'password', '••••••••')}
 
           <button className="auth-form__submit auth-form__submit--full" type="submit" disabled={loading}>
-            {loading ? 'Creating account…' : 'Create Account'}
+            {loading ? 'Создание аккаунта…' : 'Создать аккаунт'}
           </button>
         </form>
 
         <p className="auth-card__switch">
-          Already have an account? <Link to="/login">Sign in</Link>
+          Уже есть аккаунт? <Link to="/login">Войти</Link>
         </p>
       </div>
     </div>

@@ -76,7 +76,7 @@ export default function LandmarkCard({ landmark, onCommentAdded }) {
           className="landmark-card__toggle"
           onClick={() => setExpanded(!expanded)}
         >
-          <span>{expanded ? 'Hide' : 'Show'} comments</span>
+          <span>{expanded ? 'Скрыть' : 'Показать'} комментарии</span>
           <span className="landmark-card__count">{comments.length}</span>
           <span className={`landmark-card__chevron ${expanded ? 'up' : ''}`}>▾</span>
         </button>
@@ -91,7 +91,7 @@ export default function LandmarkCard({ landmark, onCommentAdded }) {
                     className="comment-form__textarea"
                     value={commentText}
                     onChange={e => setCommentText(e.target.value)}
-                    placeholder="Share your thoughts about this place…"
+                    placeholder="Поделитесь впечатлениями об этом месте…"
                     rows={2}
                   />
                   <button
@@ -99,19 +99,19 @@ export default function LandmarkCard({ landmark, onCommentAdded }) {
                     className="comment-form__submit"
                     disabled={submitting || !commentText.trim()}
                   >
-                    {submitting ? '…' : 'Post'}
+                    {submitting ? '…' : 'Отправить'}
                   </button>
                 </div>
               </form>
             ) : (
               <p className="comment-login-prompt">
-                <Link to="/login">Sign in</Link> to leave a comment.
+                <Link to="/login">Войдите</Link>, чтобы оставить комментарий.
               </p>
             )}
 
             <div className="comments-list">
               {comments.length === 0 && (
-                <p className="comments-empty">No comments yet. Be the first!</p>
+                <p className="comments-empty">Комментариев пока нет. Будьте первым!</p>
               )}
               {comments.map(comment => (
                 <div key={comment.id} className="comment-item">

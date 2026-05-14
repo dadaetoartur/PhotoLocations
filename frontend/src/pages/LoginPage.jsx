@@ -23,7 +23,7 @@ export default function LoginPage() {
       await login(form.username, form.password)
       navigate(from, { replace: true })
     } catch (err) {
-      setError(err.response?.data?.error || 'Invalid username or password.')
+      setError(err.response?.data?.error || 'Неверное имя пользователя или пароль.')
     } finally {
       setLoading(false)
     }
@@ -35,15 +35,15 @@ export default function LoginPage() {
       <div className="auth-card">
         <div className="auth-card__header">
           <Link to="/" className="auth-card__logo">◈ Photo<em>Locations</em></Link>
-          <h1 className="auth-card__title">Welcome back</h1>
-          <p className="auth-card__sub">Sign in to leave comments and track your favourite landmarks.</p>
+          <h1 className="auth-card__title">С возвращением</h1>
+          <p className="auth-card__sub">Войдите, чтобы оставлять комментарии и отмечать любимые достопримечательности.</p>
         </div>
 
         {error && <div className="auth-card__error">{error}</div>}
 
         <form className="auth-form" onSubmit={handleSubmit}>
           <div className="auth-form__group">
-            <label className="auth-form__label">Username</label>
+            <label className="auth-form__label">Имя пользователя</label>
             <input
               className="auth-form__input"
               type="text"
@@ -52,11 +52,11 @@ export default function LoginPage() {
               onChange={handleChange}
               required
               autoFocus
-              placeholder="your_username"
+              placeholder="ваш_логин"
             />
           </div>
           <div className="auth-form__group">
-            <label className="auth-form__label">Password</label>
+            <label className="auth-form__label">Пароль</label>
             <input
               className="auth-form__input"
               type="password"
@@ -68,12 +68,12 @@ export default function LoginPage() {
             />
           </div>
           <button className="auth-form__submit" type="submit" disabled={loading}>
-            {loading ? 'Signing in…' : 'Sign In'}
+            {loading ? 'Вход…' : 'Войти'}
           </button>
         </form>
 
         <p className="auth-card__switch">
-          Don't have an account? <Link to="/register">Create one</Link>
+          Нет аккаунта? <Link to="/register">Создать</Link>
         </p>
       </div>
     </div>
